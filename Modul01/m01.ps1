@@ -31,5 +31,23 @@ $y.GetType()
 Write-Host "--------------------------------------"
 $tuevListe1=1,2,3
 $tuevListe1.GetType()
-
+cls
 #Typisierte variablen.
+
+[Int32]$t=12
+$t.GetType()
+[Int64]$tx=13
+$tx.GetType()
+cls
+# Kurzschreibweise Int32 
+[int]$s=8
+$s=4
+$s=7
+ [string] $text="test"
+cls
+ [datetime]$datum="10.11.2023"
+ $datum
+cls
+#Automatic Variables
+${save-items}="a","b","c"
+${save-items}.GetType()
