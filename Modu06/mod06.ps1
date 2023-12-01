@@ -1,6 +1,3 @@
-# Info zu Workflows und Verfügbarkeit #
-
-#https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.4
 
 $uhrzeit =Get-Date
 
@@ -15,11 +12,11 @@ workflow  Start-Flow {
     inlinescript {
 # Uhrzeit festhalten
 Log-Message "$uhrzeit : Workflow Start"}
-Checkpoint-Workflow
+
 # Rechner neu starten
-Restart-Computer -Wait
+#Restart-Computer -Wait
 # Uhrzeit wieder aufnehmen
-Checkpoint-Workflow
+
 # Alle Ip Adressen des Subnetzes anpingen
 $subnetz="192.168.0"
         parallel {
@@ -33,9 +30,19 @@ $subnetz="192.168.0"
              
         }
 
-        Checkpoint-Workflow
+
 # Differenz berechnen
 
 # In Logdatei scheiben
 inlinescript {Log-Message "$uhrzeit : Workflow Start"}
     }
+
+    Start-Flow
+
+# Einmaliger Job
+ start-job -ScriptBlock {Start-Flow}
+ Get-Job
+
+ # Geplanter Job
+ $trigger=New-JobTrigger -Once -At 15:00
+ Register-ScheduledJob -Name IP -Trigger $trigger -ScriptBlock {Start-Flow}
