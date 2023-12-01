@@ -15,11 +15,11 @@ workflow  Start-Flow {
     inlinescript {
 # Uhrzeit festhalten
 Log-Message "$uhrzeit : Workflow Start"}
-
+Checkpoint-Workflow
 # Rechner neu starten
 Restart-Computer -Wait
 # Uhrzeit wieder aufnehmen
-
+Checkpoint-Workflow
 # Alle Ip Adressen des Subnetzes anpingen
 $subnetz="192.168.0"
         parallel {
@@ -33,7 +33,7 @@ $subnetz="192.168.0"
              
         }
 
-
+        Checkpoint-Workflow
 # Differenz berechnen
 
 # In Logdatei scheiben
