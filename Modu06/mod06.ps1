@@ -1,3 +1,6 @@
+# Info zu Workflows und Verfügbarkeit #
+
+#https://learn.microsoft.com/en-us/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.4
 
 $uhrzeit =Get-Date
 
