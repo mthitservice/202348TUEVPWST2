@@ -13,7 +13,7 @@
 
 #>
 # Funktion Erzeuge Passwortschlüsseldatei
-function Create-KeyFile {
+function Write-KeyFile {
     param([string]$Path )
     try {
         $cred = Get-Credential -Message "Passwort Hash generieren" -Title "Passwort generieren"
@@ -41,3 +41,8 @@ function Read-KeyFile {
 
 
 }
+
+Export-ModuleMember -Function Write-KeyFile,Read-KeyFile
+
+
+
