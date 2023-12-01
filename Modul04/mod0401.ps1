@@ -17,8 +17,8 @@ try {
 
 }
 catch {
-   Write-Error -Message "Wir haben ein Problem" -ErrorAction Stop
-   Write-Output $_
+    Write-Error -Message "Wir haben ein Problem" -ErrorAction Stop
+    Write-Output $_
 }
 finally {
     Write-Output "Schließe alles"
@@ -32,7 +32,7 @@ try {
 
 }
 catch {
-   Write-Error -Message "Wir haben noch ein Problem" -ErrorAction Stop
+    Write-Error -Message "Wir haben noch ein Problem" -ErrorAction Stop
    
 }
 
